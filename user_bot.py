@@ -65,14 +65,18 @@
     elif (check("level") == 5):
         if (check("gold", x, y) != 0):
             return "take"
-        if (check("wall", x - 1, y) == False):
+        if (check("wall", x-1, y - 1) ==  True and check("wall", x-2, y - 1) ==  True  and  check("wall", x-1, y) ==  False):
             return "left"
-        if (check("wall", x, y - 1) ==  False):
-            return "up"
         if (check("wall", x + 1, y) ==  False):
             return "right"
         if (check("wall", x, y + 1) == False):
             return "down"
+        if (check("wall", x - 1, y) == False):
+            return "left"
+        if (check("wall", x, y - 1) ==  False):
+            return "up"
+
+
 
 
     return "pass"
